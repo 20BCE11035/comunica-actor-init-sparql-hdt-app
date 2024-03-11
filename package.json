@@ -1,0 +1,65 @@
+{
+  "name": "@comunica/actor-init-sparql-hdt",
+  "version": "1.5.0",
+  "description": "A Comunica engine for SPARQL query evaluation over HDT files",
+  "lsd:importPaths": {
+    "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-init-sparql-hdt/^1.0.0/config/": "config/"
+  },
+  "main": "index.js",
+  "typings": "index",
+  "repository": "https://github.com/comunica/comunica-actor-init-sparql-hdt/tree/master/packages/actor-init-sparql-hdt",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "comunica",
+    "actor",
+    "init",
+    "sparql",
+    "hdt"
+  ],
+  "license": "MIT",
+  "bin": {
+    "comunica-sparql-hdt": "./bin/query.js",
+    "comunica-dynamic-sparql-hdt": "./bin/query-dynamic.js"
+  },
+  "bugs": {
+    "url": "https://github.com/comunica-actor-init-sparql-hdt/comunica/issues"
+  },
+  "homepage": "https://github.com/comunica-actor-init-sparql-hdt/comunica#readme",
+  "files": [
+    "config",
+    "bin/**/*.d.ts",
+    "bin/**/*.js",
+    "index.js",
+    "index.d.ts",
+    "engine-default.js"
+  ],
+  "dependencies": {
+    "@comunica/actor-init-sparql": "^1.9.0",
+    "@comunica/actor-rdf-resolve-quad-pattern-hdt": "^1.5.0",
+    "@comunica/runner-cli": "^1.9.0",
+    "@types/minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "@comunica/runner-cli": "^1.9.0",
+    "@types/n3": "^1.0.1",
+    "@types/node": "^12.0.0",
+    "manual-git-changelog": "^1.0.0",
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.7.0",
+    "tslint-eslint-rules": "^5.1.0",
+    "typescript": "^3.1.1"
+  },
+  "pre-commit": [
+    "build",
+    "lint"
+  ],
+  "scripts": {
+    "lint": "tslint bin/**/*.ts --exclude '**/*.d.ts'",
+    "build": "tsc",
+    "validate": "npm ls",
+    "prepare": "comunica-compile-config config/config-default.json > engine-default.js",
+    "version": "manual-git-changelog onversion"
+  }
+}
